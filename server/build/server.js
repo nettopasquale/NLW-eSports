@@ -17,8 +17,9 @@ const cors_1 = __importDefault(require("cors"));
 const client_1 = require("@prisma/client");
 const convert_hour_string_to_minutes_1 = require("./utils/convert-hour-string-to-minutes");
 const convert_minutes_to_hour_string_1 = require("./utils/convert-minutes-to-hour-string");
+const corsOptions_1 = __importDefault(require("./config/corsOptions"));
 const app = (0, express_1.default)();
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)(corsOptions_1.default));
 app.use(express_1.default.json());
 const prisma = new client_1.PrismaClient({
     log: ['query']
@@ -99,4 +100,4 @@ app.get('/ads/:id/discord', (request, response) => __awaiter(void 0, void 0, voi
         discord: ad.discord,
     });
 }));
-app.listen(3333);
+app.listen(process.env.PORT || 3333);
