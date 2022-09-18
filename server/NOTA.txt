@@ -53,3 +53,30 @@ localhost:3333/ads/5
 
 
 // GET, POST, PUT, PATCH, DELETE
+
+
+//@id chave primária!
+model Game {
+  id        String @id @default(uuid())
+  title     String
+  bannerUrl String
+
+  //um game pode ter varios anúncios
+  ads Ad[]
+}
+
+//geralmente se evita id numérico
+model Ad {
+  id              String   @id @default(uuid())
+  gameId          String
+  name            String
+  yearsPlaying    Int
+  discord         String
+  weekdays        String //isso aqui vai ser manipulado pra ser Json
+  hourStart       Int
+  hourEnd         Int
+  useVoiceChannel Boolean
+  createdAt       DateTime @default(now()) //valor da data atual
+
+  game Game @relation(fields: [gameId], references: [id])
+}
