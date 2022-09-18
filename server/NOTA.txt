@@ -1,0 +1,55 @@
+// como vamos fazer o tipo dos pacotes serem em módulo(ES6), temos que RENOMEAR os arquivos .js para .mjs!
+// assim conseguimos fazer o "import express from 'express' " ao invés do "require(express)"
+
+//npm i typescript 
+
+// npm run tsc (antes colocar o build do package.json para ser "tsc")
+    npm run build -> cria uma build em js a partir de um arquivo de typescript
+    por causa da incompatibilidade. PRECISA EXISTIR UM TSCONFIG ANTES.
+    OPCIONAL: no tsconfig podemos trocar o module para ES2020.
+
+    OPCIONAL2: descomentar o rootDir para colocar um diretório específico.
+    também descomentar o outDir para criar um diretório para a build
+
+    DESCOMENTAR: moduleResolution: node; Instalar o --save-dev @types/express
+        Isso pq o express não tem tipagem nativa em typescript, isso varia conforme pacotes
+
+// npm i ts-node-dev -D -> ajuda a automaticamente atualizar o arquivo de desenvolvimento 
+    para a produção sem passarmos por vários comandos
+
+// npx tsc --init -> cria um tsconfig.json
+
+// sqlite3 com o npm i 
+// knex é uma alternativa, converte js em uma linguagem de banco de dados
+// Prisma também faz isso. Ele usa Noje com typescript e ORM
+
+// npm i prisma -D
+// npx prisma init -h
+// npx prisma init --datasource-provider [SQLite] -> cria a pasta prisma com um arquivo .env baseado na escolha do banco de dados
+// npx prisma migrate dev -> cria um versionamento do nosso arquivo prisma para o DB
+// npx prisma studio -> lança no navegador uma view da tabela SQL!
+// npm i @prisma/client ->
+
+// "dev": "tsnd --exit-child src/server.ts" -> na alteração do arquivo, com o PRISMA qualquer alteração ele automaticamente
+ para o servidor node e reinicia;
+
+/**
+ * Query: ...
+ * Route: ... -> rota da requisição, recebe os parametros
+ * Body:  ... -> fica escondida, só aparece na resposta
+ */
+
+localhost:3333/ads/5
+
+// HTTP methods / API RESTful / HTTP Codes
+
+// 200-299 -> códigos de sucesso
+
+// 300-399 -> códigos de redirecionamento
+
+// 400-499 -> códigos de erro da parte do usuário
+
+// 500-599 -> códigos de erro do lado do servidor
+
+
+// GET, POST, PUT, PATCH, DELETE

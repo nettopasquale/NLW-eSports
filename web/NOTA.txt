@@ -1,0 +1,73 @@
+// como vamos fazer o tipo dos pacotes serem em módulo(ES6), temos que RENOMEAR os arquivos .js para .mjs!
+// assim conseguimos fazer o "import express from 'express' " ao invés do "require(express)"
+
+//npm i typescript 
+
+// npm run tsc (antes colocar o build do package.json para ser "tsc")
+    npm run build -> cria uma build em js a partir de um arquivo de typescript
+    por causa da incompatibilidade. PRECISA EXISTIR UM TSCONFIG ANTES.
+    OPCIONAL: no tsconfig podemos trocar o module para ES2020.
+
+    OPCIONAL2: descomentar o rootDir para colocar um diretório específico.
+    também descomentar o outDir para criar um diretório para a build
+
+    DESCOMENTAR: moduleResolution: node; Instalar o --save-dev @types/express
+        Isso pq o express não tem tipagem nativa em typescript, isso varia conforme pacotes
+
+// npm i ts-node-dev -D -> ajuda a automaticamente atualizar o arquivo de desenvolvimento 
+    para a produção sem passarmos por vários comandos
+
+// npx tsc --init -> cria um tsconfig.json
+
+// npm create vite@latest -> cria um arquivo react com o VITE, que já ajuda na criação,
+    build e produção dos projetos react, é bastante recomendado e utilizado
+
+
+// npm install -g expo-cli -> Instalar o Expo para nosso ambiente de desenvolvimento mobile
+
+
+// npm install -D tailwindcss postcss autoprefixer
+    npx tailwindcss init -p  -> instala o tailwindcss junto do postcss e cria os arquivos de config.
+
+    COLOCAR: tailwindcss:
+                theme:{
+                    [fontFamily por exemplo, podemos mudar aqui a padrão
+                    sans: ['fonte nova', 'sans se n tiver']]
+                }
+                content: [caminhos: ".html, .js, .tsx" ] -> varia conforme o trabalho, mas
+                    tem que respeitar tb os caminhos;
+                
+                extends:{
+                    [backgroundImages por exemplo]
+                }
+            
+            postcss:
+
+// npm i phosphor-react
+
+// npm install @radix-ui/react-dialog -> uma lib para interfaces de MODAL
+// npm install @radix-ui/react-checkbox
+// npm install @radix-ui/react-select
+// npm install @radix-ui/react-toggle-group
+
+
+
+/*
+                    
+<select
+id='game'
+className='bg-zinc-900 py-3 px-4 rounded text-sm placeholder:text-zinc-500 appearance-none'
+>
+<option disabled selected value="">Selecione o game que deseja jogar</option>
+{games.map(game => {
+    return <option key={game.id} value={game.id} >{game.title}</option>
+})}
+</select>
+
+
+<Select.Root>
+                        <Select.Trigger className='bg-zinc-900 py-3 px-4 rounded text-sm placeholder:text-zinc-500  appearance-none'>
+                            <Select.Icon className='text-zinc-500'/>
+                            <Select.Value placeholder="Selecione o game que deseja jogar" className='py-3 px-4 text-sm placeholder:text-zinc-500' />
+                        </Select.Trigger>
+                    </Select.Root>
