@@ -6,15 +6,7 @@ import { convertMinutesToHourString } from './utils/convert-minutes-to-hour-stri
 import corsOptions from './config/corsOptions';
 
 const app = express();
-app.use(cors({
-    origin:[
-        'https://www.meusite.com',
-        'http://127.0.0.1:5173/',
-        'http://localhost:3000',
-        'http://localhost:3333',
-        'https://nlwesports-nine.vercel.app/'
-    ]
-}));
+app.use(cors(corsOptions));
 app.use(express.json());
 const prisma = new PrismaClient({
     log: ['query']
