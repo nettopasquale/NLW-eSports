@@ -176,7 +176,7 @@ async function handleCreateAd(evento: FormEvent){
                            <Check className='w-4 h-4 text-emerald-400' /> 
                         </Checkbox.Indicator>
                       </Checkbox.Root>
-                      Costumo me conecter ao chat de voz
+                      Costumo me conectar ao chat de voz
                     </label>
 
                     <footer className='mt-4 flex justify-end gap-4'>
