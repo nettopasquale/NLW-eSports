@@ -5,6 +5,7 @@ import GameBanner from './componentes/Gamebanner';
 import CreateAdBanner from './componentes/CreateAdBanner';
 import './styles/global.css';
 import { CreateAdModal } from './componentes/CreateAdModal';
+import { api } from './lib/api';
 
 interface Game{
   id: string;
@@ -14,14 +15,15 @@ interface Game{
     ads: number;
   }
 }
-
+console.log(api)
 function App() {
   const [games, setGames] = useState<Game[]>([])
 
   useEffect(()=>{
-    fetch('http://localhost:3333/games')
-      .then(resposta => resposta.json())
-      .then(data => setGames(data))
+    api.get('/games').then(res => setGames(res.data))
+    // fetch('http://localhost:3333/games')
+    //   .then(resposta => resposta.json())
+    //   .then(data => setGames(data))
   },[]); //sempre que const MUDAR, EXECUTA a função acima. Se n tiver nada, o código só executa uma única vez
 
   return (

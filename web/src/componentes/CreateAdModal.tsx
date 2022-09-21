@@ -7,6 +7,7 @@ import { Check, GameController } from "phosphor-react";
 import { Input } from "./Form/input";
 import { useState, useEffect, FormEvent } from 'react';
 import axios from 'axios';
+import { api } from '../lib/api';
 
 interface Game{
     id: string;
@@ -19,7 +20,8 @@ export function CreateAdModal(){
     const [useVoiceChannel, setUseVoiceChannel] = useState(false)
 
     useEffect(()=>{
-      axios('http://localhost:3333/games').then(resposta => setGames(resposta.data))
+      api.get('/games').then(res => setGames(res.data))
+      // axios('http://localhost:3333/games').then(resposta => setGames(resposta.data))
     },[]); 
 
 async function handleCreateAd(evento: FormEvent){

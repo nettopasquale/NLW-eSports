@@ -15,11 +15,6 @@ const prisma = new PrismaClient({
     log: ['query']
 });
 
-// const allowedOrigins: [
-//     'http://127.0.0.1:5173/',
-//     'http://localhost:3333'
-// ]
-
 //os nomes das rotas sempre devem estar no pural?
 //isso pq o findMnay já é assíncrono
 app.get('/games', async (req, res)=>{
